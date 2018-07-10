@@ -13,8 +13,8 @@ before_cache:
 
 cache:
   directories:
-    - $HOME/.gradle/caches/
-    - $HOME/.gradle/wrapper/
+  - "$HOME/.gradle/caches/"
+  - "$HOME/.gradle/wrapper/"
 
 before_install:
   - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -25,11 +25,12 @@ before_install:
   - chmod +x gradlew
 
 script:
-  - ./gradlew stage
+  - "./gradlew stage"
   - docker build -t release .
 
 deploy:
-  provider: script
-  script: bash docker_push
+  provider: heroku
+  api_key:
+    secure: 1IoMLPFVN12cOxKZPQvIXeI02iUa/O/MtsJV1siKQh1li3rrkWy7dfFTXQd2/G2h54xqzkYajvx8fGrnwVu1qcd45uiN7RCF2T9ZR9Kweb3zFtd85vd6PU0VdUcaLrAtYWBP4NbbHEfY6nNoCpJFp3FEOMvYJvZNS5I34MsD+CprAWdnbDSo7375zNuRnBDiR7iiNvQc4SIpCH6S7yiMlFU0q1V+SVuld3SZlFT80mI0PwXIdm1THlH8K8vyQCuKdGag7yYijgYDWe/O/spRqg4VuX6dOSQKHQImDcu6/cUPfIHpZfv37nLS+y2Iz52OeOanbQXsLqrJXBW37IIYYI3e6mpQ3k3y9SP0MjlZXJYXMk3vt69ADV91t3lEof/lDLSAQmf0LOvpzw4wdOMiiJyPS92hxfKIBXjlRVBJ60rJukIZbrkbpGdH9jVgf79wBhWAxQ0sbT4ISzqQHqSCCzINq22/LnAvyv3+1l9IO+3ZtyE3AB+PL0BQ19MMvtMPFAEgx2srnkjf9+ocVClWEp8/5nHKx307eyQNFk2JcMvy01Ugf+GR1CtE41ZP03ldyUhjoy9YHmIT9UG/5zEABTP0ufjhdfyo3vpbVPTzBLxxIaNJNt+GrRkh1la1fIqfsS8pVlBHlyOu7dKjKa2OHFuEQyhK8jvYk0sfo3xiNcw=
   on:
     branch: master
