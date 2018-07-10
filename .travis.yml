@@ -17,9 +17,12 @@ before_install:
 
 script:
   - "./gradlew stage"
-  - docker build -t registry.heroku.com/$APP_NAME/web .
-  - docker login -u _ -p "$HEROKU_TOKEN" registry.heroku.com
-  - docker push registry.heroku.com/$APP_NAME/web
+
+deploy:
+  provider: script
+  script: bash deployment/build-and-push.sh
+  on:
+    branch: master
 
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
