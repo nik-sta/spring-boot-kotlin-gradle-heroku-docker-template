@@ -13,11 +13,17 @@ before_install:
     $(lsb_release -cs) stable"
   - sudo apt-get update
   - sudo apt-get -y install docker-ce
+
+before_script:
   - chmod ugo+x gradlew
-  - chmod ugo+x deployment/build-and-push.sh
 
 script:
   - "./gradlew stage"
+
+install: false
+
+before_deploy:
+  - chmod ugo+x deployment/build-and-push.sh
 
 deploy:
   provider: script
