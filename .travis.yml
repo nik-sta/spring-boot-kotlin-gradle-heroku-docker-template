@@ -16,12 +16,14 @@ before_install:
 
 install: true
 
+# TODO: change in git commit
 before_script:
   - chmod ugo+x gradlew
 
 script:
   - "./gradlew stage"
 
+# TODO: change in git commit
 before_deploy:
   - chmod ugo+x deployment/build-and-push.sh
 
