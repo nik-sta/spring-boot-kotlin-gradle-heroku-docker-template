@@ -33,6 +33,6 @@ before_install:
 
 script:
   - "./gradlew stage"
-  - heroku container:login
-  - heroku container:push web --app $APP_NAME
-  - heroku container:release web --app $APP_NAME
+  - docker login --username=_ --password="$HEROKU_API_KEY" registry.heroku.com
+  - docker build -t registry.heroku.com/$APP_NAME/web .
+  - docker push registry.heroku.com/$APP_NAME/web
