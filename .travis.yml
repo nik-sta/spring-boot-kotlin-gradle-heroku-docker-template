@@ -26,7 +26,7 @@ before_install:
 
 script:
   - ./gradlew stage
-  - docker build -t registry.heroku.com/greeting-webservice/web .
+  - docker build -t release .
 
 deploy:
   provider: script
