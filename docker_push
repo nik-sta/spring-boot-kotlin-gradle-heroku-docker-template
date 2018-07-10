@@ -1,4 +1,0 @@
-#!/bin/bash
-
-echo "$HEROKU_PASSWORD" | docker login -u "$HEROKU_USERNAME" --password-stdin registry.heroku.com/greeting-webservice/web
-docker push release
