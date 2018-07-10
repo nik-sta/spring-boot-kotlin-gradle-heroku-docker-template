@@ -1,8 +1,9 @@
 FROM openjdk:10-jdk
 
-RUN useradd --create-home -s /bin/bash user
-WORKDIR /home/user
-USER user
+RUN useradd -m appuser
+USER appuser
+
+WORKDIR /home/appuser
 
 ENV JAR_NAME gksbh-template-1.0.0.jar
 ENV JAVA_OPTS -Xms128m -Xmx1024m -XX:+StartAttachListener -Dspring.profiles.active=docker
