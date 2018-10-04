@@ -6,7 +6,7 @@ USER appuser
 WORKDIR /home/appuser
 
 ENV JAR_NAME gksbh-template-1.0.0.jar
-ENV JAVA_OPTS -Xms128m -Xmx1024m -XX:+StartAttachListener -Dspring.profiles.active=docker
+ENV JAVA_OPTS -Xms128m -Xmx1024m -XX:+StartAttachListener
 
 COPY build/libs/${JAR_NAME} ${JAR_NAME}
 

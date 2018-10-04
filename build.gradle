@@ -1,7 +1,7 @@
 buildscript {
     ext {
-        kotlinVersion = "1.2.51"
-        springBootVersion = "2.0.3.RELEASE"
+        kotlinVersion = "1.2.71"
+        springBootVersion = "2.0.5.RELEASE"
     }
 
     repositories {
@@ -9,9 +9,10 @@ buildscript {
     }
 
     dependencies {
-        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}"
-        classpath "org.jetbrains.kotlin:kotlin-allopen:${kotlinVersion}"
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}")
+        classpath("org.jetbrains.kotlin:kotlin-allopen:${kotlinVersion}")
+        classpath("org.jetbrains.kotlin:kotlin-noarg:${kotlinVersion}")
     }
 }
 
@@ -53,9 +54,9 @@ repositories {
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web") {
         exclude module: "spring-boot-starter-tomcat"
-        exclude module: "spring-boot-starter-json"
     }
-    implementation "com.google.code.gson:gson:2.8.5"
+
+    implementation "com.fasterxml.jackson.module:jackson-module-kotlin"
     implementation "org.springframework.boot:spring-boot-starter-undertow"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     implementation "org.jetbrains.kotlin:kotlin-reflect"
