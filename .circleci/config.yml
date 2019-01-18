@@ -46,11 +46,11 @@ jobs:
 
       - run: gradle bootJar
 
-  deployment:
-    staging:
-      branch: release
-      heroku:
-        appname: $APP_NAME
+deployment:
+  staging:
+    branch: release
+    heroku:
+      appname: $APP_NAME
 
 
 
