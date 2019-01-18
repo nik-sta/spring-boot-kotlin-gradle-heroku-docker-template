@@ -6,6 +6,7 @@ buildscript {
 
     repositories {
         mavenCentral()
+        jcenter()
     }
 
     dependencies {
@@ -26,7 +27,7 @@ group = "xyz.stankovic.nikola"
 version = "1.0.0-SNAPSHOT"
 
 bootJar {
-    baseName = 'gksbh-template'
+    baseName = 'app'
     version =  '1.0.0'
 }
 
@@ -48,7 +49,9 @@ compileTestKotlin {
 }
 
 repositories {
+    mavenLocal()
     mavenCentral()
+    jcenter()
 }
 
 dependencies {
