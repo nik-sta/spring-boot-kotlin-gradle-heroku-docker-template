@@ -1,12 +1,12 @@
-FROM openjdk:10-jdk
+FROM openjdk:11-jdk
 
 RUN useradd -m appuser
 USER appuser
 
 WORKDIR /home/appuser
 
-ENV JAR_NAME gksbh-template-1.0.0.jar
-ENV JAVA_OPTS -Xms128m -Xmx1024m -XX:+StartAttachListener
+ENV JAR_NAME app-1.0.0.jar
+ENV JAVA_OPTS -Xms128m -Xmx512m
 
 COPY build/libs/${JAR_NAME} ${JAR_NAME}
 
