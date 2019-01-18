@@ -46,11 +46,9 @@ jobs:
 
       - run: gradle bootJar
 
-deployment:
-  staging:
-    branch: release
-    heroku:
-      appname: $APP_NAME
+      - run:
+          command: 'bash deployment/build-and-push.sh'
+
 
 
 
