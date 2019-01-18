@@ -1,0 +1,6 @@
+server:
+  port: ${PORT:5000}
+spring:
+  http:
+    converters:
+      preferred-json-mapper: gson

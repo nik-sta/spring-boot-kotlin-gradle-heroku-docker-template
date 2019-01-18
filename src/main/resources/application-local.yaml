@@ -1,0 +1,5 @@
+server:
+  port: 5000
+spring:
+  banner:
+    location: classpath:banner-local.txt
