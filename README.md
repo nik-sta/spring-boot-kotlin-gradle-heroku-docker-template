@@ -24,4 +24,4 @@ Lorem
 
 ## Licence
 
-[The Unlicense](http://unlicense.org/)
+[Do What The F*ck You Want To Public License](http://www.wtfpl.net/)
