@@ -24,7 +24,7 @@ apply plugin: "application"
 group = "xyz.stankovic.nikola"
 version = "1.0.0-SNAPSHOT"
 
-jar {
+bootJar {
     baseName = 'app'
     version =  '1.0.0'
 }
