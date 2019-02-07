@@ -23,7 +23,10 @@ apply plugin: "application"
 
 group = "xyz.stankovic.nikola"
 version = "1.0.0-SNAPSHOT"
-mainClassName = "xyz.stakovic.nikola.gradlekotlinspringbootherokutemplate.GradleKotlinSpringBootHerokuTemplateApplication"
+
+application {
+    mainClassName = "xyz.stakovic.nikola.gradlekotlinspringbootherokutemplate.GradleKotlinSpringBootHerokuTemplateApplication"
+}
 
 bootJar {
     baseName = 'app'
