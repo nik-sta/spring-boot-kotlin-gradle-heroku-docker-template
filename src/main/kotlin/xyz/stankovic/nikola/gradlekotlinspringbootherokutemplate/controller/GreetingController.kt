@@ -1,19 +1,23 @@
 package xyz.stankovic.nikola.gradlekotlinspringbootherokutemplate.controller
 
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.RequestParam
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.web.bind.annotation.*
 import xyz.stankovic.nikola.gradlekotlinspringbootherokutemplate.model.Greeting
-import java.util.concurrent.atomic.AtomicLong
+import xyz.stankovic.nikola.gradlekotlinspringbootherokutemplate.repository.GreetingRepository
 
 
 @RestController
 class GreetingController {
 
-    private val counter = AtomicLong()
+    @Autowired
+    lateinit var repository: GreetingRepository
 
-    @GetMapping("/greeting")
-    fun greeting(@RequestParam(value = "name", defaultValue = "World") name: String) =
-            Greeting(counter.incrementAndGet(), "Hello, $name")
+    @PostMapping("/greeting")
+    fun createGreeting(@RequestBody newGreeting: Greeting): Greeting = repository.save(newGreeting)
 
+    @GetMapping("/greeting/{id}")
+    fun fetchGreeting(@PathVariable id: Long) = repository.findById(id)
+
+    @DeleteMapping("/greeting/{id}")
+    fun removeGreeting(@PathVariable id: Long) = repository.deleteById(id)
 }
