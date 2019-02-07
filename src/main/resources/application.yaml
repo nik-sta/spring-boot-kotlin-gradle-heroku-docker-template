@@ -10,7 +10,10 @@ spring:
     password: ${JDBC_DATABASE_PASSWORD}
   jpa:
     properties:
-      hibernater:
+      hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
+        jdbc:
+          lob:
+            non_contextual_creation: true
     hibernate:
       ddl-auto: update

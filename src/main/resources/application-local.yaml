@@ -3,3 +3,5 @@ server:
 spring:
   banner:
     location: classpath:banner-local.txt
+  datasource:
+    url: jdbc:postgresql://localhost:5432/greeting_db
