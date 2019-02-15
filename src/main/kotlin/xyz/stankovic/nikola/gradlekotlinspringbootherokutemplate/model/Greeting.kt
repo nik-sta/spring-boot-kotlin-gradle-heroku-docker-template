@@ -7,9 +7,12 @@ import javax.persistence.Id
 
 @Entity
 data class Greeting(
+
         @Id @GeneratedValue(strategy = GenerationType.AUTO)
         val id: Long,
-        val content: String) {
+        var content: String) {
 
-        private constructor() : this(-1, "")
+        constructor(content: String) : this(-1, content) {
+                this.content = content
+        }
 }

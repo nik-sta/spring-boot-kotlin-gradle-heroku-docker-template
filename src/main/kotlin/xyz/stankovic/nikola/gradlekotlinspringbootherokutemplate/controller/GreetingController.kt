@@ -13,7 +13,10 @@ class GreetingController {
     lateinit var repository: GreetingRepository
 
     @PostMapping("/greeting")
-    fun createGreeting(@RequestBody newGreeting: Greeting): Greeting = repository.save(newGreeting)
+    fun createGreeting(@RequestParam name: String) {
+        val newGreeting = Greeting(name)
+        repository.save(newGreeting)
+    }
 
     @GetMapping("/greeting/{id}")
     fun fetchGreeting(@PathVariable id: Long) = repository.findById(id)
