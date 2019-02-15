@@ -5,9 +5,9 @@ spring:
     converters:
       preferred-json-mapper: gson
   datasource:
-    url: ${JDBC_DATABASE_URL}
-    username: ${JDBC_DATABASE_USERNAME}
-    password: ${JDBC_DATABASE_PASSWORD}
+    url: jdbc:postgresql://${SPRING_DATABASE_HOST}:5432/${SPRING_DATABASE_NAME}?ssl=true&sslmode=require&sslfactory=org.postgresql.ssl.NonValidatingFactory
+    username: ${SPRING_DATABASE_USER}
+    password: ${SPRING_DATABASE_PASSWORD}
   jpa:
     properties:
       hibernate:
