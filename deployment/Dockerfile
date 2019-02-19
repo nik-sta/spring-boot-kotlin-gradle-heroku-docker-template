@@ -1,4 +1,4 @@
-FROM openjdk:11-jdk
+FROM openjdk:11-jre
 
 RUN useradd -m appuser
 USER appuser
