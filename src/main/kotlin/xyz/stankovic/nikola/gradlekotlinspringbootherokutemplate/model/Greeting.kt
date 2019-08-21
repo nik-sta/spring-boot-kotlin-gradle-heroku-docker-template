@@ -12,7 +12,7 @@ data class Greeting(
         val id: Long,
         var content: String) {
 
-        constructor(content: String) : this(-1, content) {
-                this.content = content
-        }
+    constructor(content: String) : this(-1, content) {
+        this.content = content
+    }
 }
